@@ -1,0 +1,36 @@
+name: Test publish to Pub.dev
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+jobs:
+  build:
+    name: Test publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@main
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@main
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check Flutter version
+        run: flutter --version
+
+      - name: Analyze project source
+        run: flutter analyze
+
+      - name: Format code
+        run: dart format --fix
+
+      - name: Check Publish Warnings
+        run: dart pub publish --dry-run
