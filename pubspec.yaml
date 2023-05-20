@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   base45: ^0.0.3
-  cbor: ">=5.1.2 <6.0.0"
+  cbor: ">=5.1.2 <=6.0.0"
 
 dev_dependencies:
   flutter_test:
