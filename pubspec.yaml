@@ -1,7 +1,8 @@
 name: qr_eu_digital_covid_certificate
 description: A package for parsing the encrypted plaintext contained in the QR code of EU COVID-19 digital vaccination certificates.
 version: 1.0.0
-homepage:
+homepage: https://github.com/DamianAldair/qr_eu_digital_covid_certificate
+repository: https://github.com/DamianAldair/qr_eu_digital_covid_certificate
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
