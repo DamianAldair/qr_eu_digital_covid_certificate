@@ -1,0 +1,23 @@
+name: qr_eu_digital_covid_certificate
+description: A package for parsing the encrypted plaintext contained in the QR code of EU COVID-19 digital vaccination certificates.
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  base45: ^0.0.3
+  cbor: ^5.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  # assets:
+  #   - images/a_dot_burr.jpeg
