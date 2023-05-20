@@ -1,0 +1,44 @@
+name: Publish to Pub.dev
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@main
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@main
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check Flutter version
+        run: flutter --version
+
+      - name: Analyze project source
+        run: flutter analyze
+
+      - name: Format code
+        run: dart format --fix
+
+      - name: Check Publish Warnings
+        run: dart pub publish --dry-run
+
+      - name: Publish
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          flutter: true
+          skipTests: true
