@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Minor dependencies fixes
+
 ## 1.0.0
 
 * First Release
