@@ -1,3 +1,7 @@
+## 1.0.3
+
+* More documentation added
+
 ## 1.0.2
 
 * Minor dependencies fixes
