@@ -5,7 +5,9 @@ import 'package:base45/base45.dart';
 import 'package:cbor/cbor.dart';
 import 'package:qr_eu_digital_covid_certificate/src/models/certificate_model.dart';
 
+/// Access point to library methods
 abstract class ParseCovidCertificate {
+  /// Converts the encoded `String` resulting from scanning the COVID Certificate QR to a `Map`.
   static Map toMap(String encryptedData) {
     String ed = encryptedData;
     if (ed.startsWith('HC1')) {
@@ -22,5 +24,6 @@ abstract class ParseCovidCertificate {
     return payload;
   }
 
+  /// Converts the COVID Certificate from a `Map` with a suitable structure to a `CovidCertificate` object.
   static CovidCertificate toObject(String encryptedData) => CovidCertificate.fromMap(toMap(encryptedData));
 }

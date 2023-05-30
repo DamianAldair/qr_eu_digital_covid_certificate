@@ -1,7 +1,11 @@
+/// Class for grouping certificate types
 abstract class CertificateType {
   Map<String, dynamic> toMap();
 }
 
+/// Certificate type specific information.
+///
+/// Vaccination certificate
 class VaccinationCertificate extends CertificateType {
   /// Disease or agent targeted: COVID-19 (SARS-CoV or one of its variants)
   final String agentTargeted;
@@ -77,6 +81,9 @@ class VaccinationCertificate extends CertificateType {
       };
 }
 
+/// Certificate type specific information.
+///
+/// Test certificate
 class TestCertificate extends CertificateType {
   /// Disease or agent targeted: COVID-19 (SARS-CoV or one of its variants)
   final String agentTargeted;
@@ -152,6 +159,9 @@ class TestCertificate extends CertificateType {
       };
 }
 
+/// Certificate type specific information.
+///
+/// Recovery certificate
 class RecoveryCertificate extends CertificateType {
   /// Disease or agent from which the holder has recovered: COVID-19 (SARS-CoV- 2 or one of its variants)
   final String agentTargeted;

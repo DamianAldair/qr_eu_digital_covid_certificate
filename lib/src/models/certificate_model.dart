@@ -3,18 +3,42 @@ import 'package:qr_eu_digital_covid_certificate/src/utils.dart' as util;
 
 /// Object represented by a COVID Certificate of the European Union
 class CovidCertificate {
+  /// The date the certificate was issued
   final DateTime issuedAt;
+
+  /// The date on which the certificate will expire
   final DateTime expiresAt;
+
+  /// Certificate version
   final String version;
+
+  /// Country in which the vaccine was administered
   final String country;
+
+  /// Identification of the person
   final String? identification;
+
+  /// Given name
   final String forename;
+
+  /// Given standardised name
   final String standardisedForename;
+
+  /// Last name
   final String surname;
+
+  /// Last standardised name
   final String standardisedSurname;
+
+  /// Date of birth
   final DateTime dateOfBirth;
+
+  /// Certificate.
+  ///
+  /// This may be a vaccination (`VaccinationCertificate`), a test (`TestCertificate`) or a certificate of recovery (`RecoveryCertificate`).
   final CertificateType type;
 
+  /// Default Constructor
   CovidCertificate({
     required this.issuedAt,
     required this.expiresAt,
@@ -29,6 +53,9 @@ class CovidCertificate {
     required this.type,
   });
 
+  /// Constructor to create a `CovidCertificate` from a `Map`.
+  ///
+  /// Please keep in mind the `Map` must have a correct structure. It is recommended that it comes directly from the scanned COVID Certificate.
   factory CovidCertificate.fromMap(Map<dynamic, dynamic> map) {
     final cert = (map[-260] as Map)[1] as Map;
     final nam = cert["nam"] as Map;
@@ -63,6 +90,7 @@ class CovidCertificate {
     );
   }
 
+  /// Converts from `CovidCertificate` to a `Map` with COVID Certificate structure
   Map toMap() {
     final String c;
     switch (type.runtimeType) {
